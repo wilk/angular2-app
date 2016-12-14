@@ -1,0 +1,48 @@
+<div class="tabs is-centered is-boxed">
+    <ul>
+        <li [ngClass]="{'is-active': currentTab === 'all'}">
+            <a (click)="onTabChange('all')">
+                <span class="icon is-small"><i class="fa fa-user"></i></span>
+                <span>Users</span>
+            </a>
+        </li>
+        <li [ngClass]="{'is-active': currentTab === 'starred'}">
+            <a (click)="onTabChange('starred')">
+                <span class="icon is-small"><i class="fa fa-star"></i></span>
+                <span>Starred</span>
+            </a>
+        </li>
+    </ul>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Country</th>
+            <th>Address</th>
+            <th>Mobile</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of (users | starred:currentTab === 'starred')">
+            <td>{{user.name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.country}}</td>
+            <td>{{user.address}}</td>
+            <td>{{user.mobile}}</td>
+            <td class="is-icon">
+                <a (click)="onStar(user)">
+                    <i [ngClass]="{'fa-star': user.star, 'fa-star-o': !user.star}" class="fa"></i>
+                </a>
+            </td>
+            <td class="is-icon">
+                <a routerLink="/users/{{user.id}}">
+                    <i class="fa fa-info-circle"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+<form (submit)="onSubmit(user)">
+    <label class="label">Name</label>
+    <p class="control">
+        <input class="input" [(ngModel)]="user.name" name="name"
+               type="text" placeholder="User name">
+    </p>
+    <label class="label">Email</label>
+    <p class="control">
+        <input class="input" [(ngModel)]="user.email" name="email"
+               type="email" placeholder="User email">
+    </p>
+    <label class="label">Country</label>
+    <p class="control">
+        <input class="input" [(ngModel)]="user.country" name="country"
+               type="text" placeholder="User country">
+    </p>
+    <label class="label">Address</label>
+    <p class="control">
+        <input class="input" [(ngModel)]="user.address" name="address"
+               type="text" placeholder="User address">
+    </p>
+    <label class="label">Mobile</label>
+    <p class="control">
+        <input class="input" [(ngModel)]="user.mobile" name="mobile"
+               type="tel" placeholder="User mobile">
+    </p>
+
+    <p class="control">
+        <button *ngIf="user.id !== null" (click)="onRemove(user.id)" class="button is-danger">Remove</button>
+        <button type="submit" class="button is-primary">Submit</button>
+    </p>
+</form>

@@ -1,0 +1,28 @@
+<nav class="nav">
+    <div class="nav-left">
+        <span *ngIf="!onDashboard" class="nav-item">
+          <a routerLink="/" class="button">
+            <span class="icon">
+                <i class="fa fa-arrow-circle-left"></i>
+            </span>
+            <span>Dashboard</span>
+          </a>
+        </span>
+    </div>
+    <div class="nav-center">
+        <span class="nav-item is-brand">
+            <h1 class="title">Agenda</h1>
+        </span>
+    </div>
+    <div class="nav-right">
+        <span *ngIf="onDashboard" class="nav-item">
+            <a routerLink="/users" class="button is-primary">
+                <span class="icon">
+                  <i class="fa fa-plus-circle"></i>
+                </span>
+                <span>Add User</span>
+            </a>
+        </span>
+    </div>
+</nav>
+<router-outlet></router-outlet>
