@@ -48,6 +48,7 @@ export class UserComponent implements OnInit {
     }
     
     onRemove(userId: number): void {
-        
+        this.agenda.remove(userId)
+            .subscribe(() => this.router.navigate(['/']))
     }
 }

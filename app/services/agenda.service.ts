@@ -51,9 +51,14 @@ export class AgendaService {
         return this.http.post('http://localhost:3005/contacts', user)
             .map((res: Response) => res.json())
     }
-    
+
     update(user: User): Observable<User> {
         return this.http.put(`http://localhost:3005/contacts/${user.id}`, user)
+            .map((res: Response) => res.json())
+    }
+
+    remove(userId: number): Observable<void> {
+        return this.http.delete(`http://localhost:3005/contacts/${userId}`)
             .map((res: Response) => res.json())
     }
 }
